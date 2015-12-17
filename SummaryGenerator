@@ -1,0 +1,47 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é gerar um súmario, quadros contidos na variável mFrames
+%através da otimização do Problema da Diversidade Máxima. Para a solução
+%desse problema foi utilizado um algoritmo mempetico evolutivo,
+%desenvolvido por Alan de Freitas, que pode ser encontrado em
+%www.alandefreitas.com/downloads/problem-instances/maximum-diversity-problem.php
+
+function [y, time] = samplingTests(str,samp,m,hist,inert,compr,exec_time)
+tic;
+%amostra video STR a taxa de amostragem SAMP e retorna a sequencia S
+%amostrada de frames
+[s, NumSampleFrames] = vidSampling(str,samp);
+%cria a matrix diversidade dos frames contidos em S e parametros de
+%controle das carcteristicas comparadas entre os quadros
+y = diversityMatrix(s,hist,inert,compr);
+problem.d = y;                          %matriz diversidade
+problem.m = m;                          %m elementos de uma solucao
+problem.n = NumSampleFrames;           %n elementos que compoem o universo
+if (problem.m > problem.n)
+    disp('Subconjunto maior que o próprio conjunto');
+    y = 0;
+    time = 0;
+    return;
+end
+[mFrames, time] = MSES2(problem, exec_time);    %aplicação do alogritmo evolutivo
+y = mFrames;
+time = toc;
+
+%plotagem dos quadros-chave
+framesPos = find(mFrames.x);
+
+% Matriz diversidade dos quadros-chave
+% for i=1:length(framesPos)
+%    for j=1:length(framesPos)
+%         D_mFrames(i,j) = problem.d(framesPos(i),framesPos(j));
+%    end 
+% end 
+% D_mFrames;
+
+figure
+for i=1:m
+    subplot(5,4,i);
+    imshow(s(framesPos(i)).cdata);
+end
+
+end
