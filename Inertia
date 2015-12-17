@@ -1,0 +1,13 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é calcluar a as três medidas do momento de inércia de uma
+%iimagem
+
+function y = inertiaCalc(x)
+
+Fig = double(x);
+y.mean = mean2(Fig); %calcula a média
+y.var = var(Fig(:)); %calcula a variância
+y.std = std(Fig(:)); %calcula o desvio padrão
+
+end
