@@ -1,0 +1,14 @@
+function [y , NumSampleFrames] = vidSampling(x,samp)
+
+V = VideoReader(x);         %abre o vídeo
+j = 1;                      %seta  variavel auxiliar
+y = struct('cdata', {});    %cria uma estrutra de dados para armazenar os frames
+
+for i = 1: V.NumberOfFrames %loop para estração dos frames
+    if rem(i,samp) == 0     %condição de amostragem
+        y(j).cdata = read(V,i);     %armazena o frame atual na estrutura de dados
+        %imshow(y(j).cdata)
+        j = j + 1;
+    end
+NumSampleFrames = j - 1;
+end
