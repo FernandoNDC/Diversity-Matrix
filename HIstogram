@@ -1,0 +1,20 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é criar histograma de cores para um quadro de um vídeo
+
+function y = histCalc(x)
+
+%escala a imagem para o formato 320x240
+Fig = rgb2hsv(x);
+%separa os três canais de cada imagem
+H = Fig(:,:,1);
+S = Fig(:,:,2);
+V = Fig(:,:,3);
+%gera um histograma com 48 bandas contendo 16 bandas de cada canal
+hHist1 = hist(H(:),16);
+sHist1 = hist(S(:),16);
+vHist1 = hist(V(:),16);
+Hist1 = [hHist1(:); sHist1(:); vHist1(:)];
+y = Hist1/max(Hist1); %passa o histograma normalizado
+
+end
