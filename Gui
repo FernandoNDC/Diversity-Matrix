@@ -1,0 +1,354 @@
+function varargout = GUI_framextr(varargin)
+% GUI_FRAMEXTR MATLAB code for GUI_framextr.fig
+%      GUI_FRAMEXTR, by itself, creates a new GUI_FRAMEXTR or raises the existing
+%      singleton*.
+%
+%      H = GUI_FRAMEXTR returns the handle to a new GUI_FRAMEXTR or the handle to
+%      the existing singleton*.
+%
+%      GUI_FRAMEXTR('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in GUI_FRAMEXTR.M with the given input arguments.
+%
+%      GUI_FRAMEXTR('Property','Value',...) creates a new GUI_FRAMEXTR or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before GUI_framextr_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to GUI_framextr_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help GUI_framextr
+
+% Last Modified by GUIDE v2.5 11-Nov-2015 19:33:48
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @GUI_framextr_OpeningFcn, ...
+                   'gui_OutputFcn',  @GUI_framextr_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before GUI_framextr is made visible.
+function GUI_framextr_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to GUI_framextr (see VARARGIN)
+
+% Choose default command line output for GUI_framextr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes GUI_framextr wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = GUI_framextr_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in cb_hist.
+function cb_hist_Callback(hObject, eventdata, handles)
+% hObject    handle to cb_hist (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of cb_hist
+
+
+% --- Executes on button press in cb_inert.
+function cb_inert_Callback(hObject, eventdata, handles)
+% hObject    handle to cb_inert (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of cb_inert
+
+
+% --- Executes on button press in cb_compr.
+function cb_compr_Callback(hObject, eventdata, handles)
+% hObject    handle to cb_compr (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of cb_compr
+
+
+function et_txam_Callback(hObject, eventdata, handles)
+% hObject    handle to et_txam (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of et_txam as text
+%        str2double(get(hObject,'String')) returns contents of et_txam as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function et_txam_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to et_txam (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function et_quadr_Callback(hObject, eventdata, handles)
+% hObject    handle to et_quadr (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of et_quadr as text
+%        str2double(get(hObject,'String')) returns contents of et_quadr as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function et_quadr_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to et_quadr (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pb_restart.
+function pb_restart_Callback(hObject, eventdata, handles)
+% hObject    handle to pb_start (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+clc;
+clear all;
+
+
+% --- Executes on button press in pb_start.
+function pb_start_Callback(hObject, eventdata, handles)
+% hObject    handle to pb_start (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+txam = str2num(get(handles.et_txam,'String'));
+if ~isnumeric(txam) || isempty(txam)
+    disp('Valor inválido para a taxa de amostragem.')
+    return;
+end
+quantquadr = str2num(get(handles.et_quadr,'String'));
+if ~isnumeric(quantquadr) || isempty(quantquadr)
+    disp('Valor inválido para a quantidade de quadros-chave.')
+    return;
+end
+exec_time = str2num(get(handles.et_exec_time,'String'));
+if ~isnumeric(exec_time) || isempty(exec_time)
+    disp('Valor inválido para o tempo de execução.')
+    return;
+end
+aux_carac = 0;
+if (get(handles.cb_hist,'Value') == get(hObject,'Max'))
+    slc_hist = 1;
+    aux_carac = aux_carac + 1;
+else
+	slc_hist = 0;
+end
+if (get(handles.cb_inert,'Value') == get(hObject,'Max'))
+    slc_inert = 1;
+    aux_carac = aux_carac + 1;
+else
+	slc_inert = 0;
+end
+if (get(handles.cb_compr,'Value') == get(hObject,'Max'))
+    slc_compr = 1;
+    aux_carac = aux_carac + 1;
+else
+	slc_compr = 0;
+end
+if aux_carac <= 0
+    disp('Nenhuma carcterística selecionada');
+    return;
+end
+Selected = get(handles.listbox1, 'value');
+% If more than one is selected, bail out.
+if length(Selected) > 1
+	baseVideoFileName = '';
+	% Change mouse pointer (cursor) to an arrow.
+	set(gcf,'Pointer','arrow')
+	drawnow;	% Cursor won't change right away unless you do this.
+	return;
+end
+% If only one is selected, display it.
+ListOfVideoNames = get(handles.listbox1, 'string');
+% Get the name of the item in the listbox that they clicked on.
+baseVideoFileName = cell2mat(ListOfVideoNames(Selected));
+% Prepend folder.
+fullVideoFileName = fullfile(get(handles.et_dir,'String'), baseVideoFileName);
+[pathstr,name,ext] = fileparts(fullVideoFileName);
+%if ~strcmp(ext,'.mpg') || isempty(ext) || ~strcmp(ext,'.mp4')
+%    disp('Nenhum vídeo selecionado.')
+%    return;
+%end
+[mFrames, time] = samplingTests(fullVideoFileName, txam,quantquadr,slc_hist,slc_inert,slc_compr, exec_time);
+text=num2str(time);
+set(handles.tx_time,'string',text);
+
+
+% --- Executes on selection change in listbox1.
+function listbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns listbox1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from listbox1
+% Get image name
+
+
+% --- Executes during object creation, after setting all properties.
+function listbox1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+function et_dir_Callback(hObject, eventdata, handles)
+% hObject    handle to et_dir (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of et_dir as text
+%        str2double(get(hObject,'String')) returns contents of et_dir as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function et_dir_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to et_dir (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pb_preencher.
+function pb_preencher_Callback(hObject, eventdata, handles)
+% hObject    handle to pb_preencher (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+folder = get(handles.et_dir,'String');
+if length(folder) > 0 
+	if exist(folder,'dir') == false
+		msgboxw(['Diretório ' folder ' não existe.']);
+		return;
+    end
+else
+	fprintf('Nenhum diretório especificado para uso.\n');
+	return;
+end
+ListOfVideosNames = {};
+VideosFiles = dir([folder '\*.*']);
+for Index = 1:length(VideosFiles)
+	baseFileName = VideosFiles(Index).name;
+	[folder2, name, extension] = fileparts(baseFileName);
+	extension = upper(extension);
+	switch lower(extension)
+	case {'.mpg'}
+		% Allow only mpg videos
+		ListOfVideosNames = [ListOfVideosNames baseFileName];
+    case {'.mp4'}
+		% Allow only mpg videos
+		ListOfVideosNames = [ListOfVideosNames baseFileName];
+	otherwise
+	end
+end
+set(handles.listbox1,'string',ListOfVideosNames);
+
+
+% --- Executes on button press in pb_play.
+function pb_play_Callback(hObject, eventdata, handles)
+% hObject    handle to pb_play (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+Selected = get(handles.listbox1, 'value');
+% If more than one is selected, bail out.
+if length(Selected) > 1
+	baseVideoFileName = '';
+	% Change mouse pointer (cursor) to an arrow.
+	set(gcf,'Pointer','arrow')
+	drawnow;	% Cursor won't change right away unless you do this.
+	return;
+end
+% If only one is selected, display it.
+ListOfVideoNames = get(handles.listbox1, 'string');
+% Get the name of the item in the listbox that they clicked on.
+baseVideoFileName = cell2mat(ListOfVideoNames(Selected));
+% Prepend folder.
+fullVideoFileName = fullfile(get(handles.et_dir,'String'), baseVideoFileName);
+% Display the image.
+[pathstr,name,ext] = fileparts(fullVideoFileName);
+%if ~strcmp(ext,'.mpg') || isempty(ext) || ~strcmp(ext,'.mp4')
+%    disp('Nenhum vídeo selecionado.')
+%    return;
+%end
+imgOriginal = implay(fullVideoFileName);
+
+
+
+function et_exec_time_Callback(hObject, eventdata, handles)
+% hObject    handle to et_exec_time (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of et_exec_time as text
+%        str2double(get(hObject,'String')) returns contents of et_exec_time as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function et_exec_time_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to et_exec_time (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
