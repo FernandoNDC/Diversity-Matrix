@@ -1,0 +1,15 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é calcular a interseção normalizada entre dois histogramas
+
+function y = histDifCalc(x1,x2)
+
+%calcula a distância normalizada, através da interseção entre os
+%histogramas
+sum1 = 0;
+for i=1:48
+  sum1 = sum1 + (min(x1(i),x2(i)));
+end
+y = 1 - sum1/min(sum(x1),sum(x2));
+
+end
