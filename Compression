@@ -1,0 +1,25 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é calcular o tamanho de compressão de um arquivo de vídeo
+
+function y = imgCompCalc(x1, x2, i)
+
+%estrutura para armazenar as imagens
+Fig = cell(2,1);
+%força a resolução das imagens as imagens
+Fig{1} = imresize(x1, [320 240]);
+Fig{2} = imresize(x2, [320 240]);
+%cria um vídeo de dois segundos, 1fps
+V = VideoWriter(strcat('V',strcat(num2str(i),'.avi')));         %Cria um objeto de vídeo
+V.FrameRate = 1;                   %Seta a quantidade de 1 quadro por segundo
+open(V);                           %Inicializa o objeto
+for j=1:2                           %Converte a imagem para um quadro
+   frame = im2frame(Fig{j});        %Escreve os quadros no vídeo
+   writeVideo(V, frame);           %Seta 1 segundos por imagem
+end
+close(V);                          %Encerra o objeto de vídeo
+%comprime os vídeos
+Z1 = zip(strcat('V',num2str(i)),strcat('C:\Users\FernandoNDC\Documents\MATLAB\V',strcat(num2str(i),'.avi')));
+Z1info = dir(strcat('C:\Users\FernandoNDC\Documents\MATLAB\V',strcat(num2str(i),'.avi')));
+y = Z1info.bytes; %retorna o valor em bytes do arquivo comprimido
+end
