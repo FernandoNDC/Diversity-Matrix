@@ -1,0 +1,15 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é calcular a distância euclidiana de três medidas do momento
+%de inércia
+
+function y = inertiaDifCalc(x1,x2)
+
+%diferenças normalizadas
+n1 = (max(x1.mean,x2.mean)-min(x1.mean,x2.mean))/max(x1.mean,x2.mean); 
+n2 = (max(x1.var,x2.var)-min(x1.var,x2.var))/max(x1.var,x2.var);
+n3 = (max(x1.std,x2.std)-min(x1.std,x2.std))/max(x1.std,x2.std);
+%calcula a distância euclidiana dos valores normalizados
+y = sqrt(n1^2 + n2^2 + n3^2);
+
+end
