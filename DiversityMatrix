@@ -1,0 +1,32 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é criar uma matriz contendo a diversidade entre quadros de um
+%vídeo
+
+function y = diversityMatrix(x, H, I, C)
+%inicializa uma matriz de zeros
+y = zeros(length(x), length(x));
+%loop para gerar os valores de diversidade entre os quadros e preencher a
+%matriz diversidade.
+for i = 1 : length(x)
+    for j = i  : length(x)
+        if H == 1   %se a caracteristica histograma de cor sera utilizada
+            h1 = histCalc(x(i).cdata);
+            h2 = histCalc(x(j).cdata);
+            V1 = histDifCalc(h1,h2);
+            y(i,j) = y(i,j) + V1;
+        end
+        if I == 1   %se a caracteristica momento de inercia sera utilizada
+            i1 = inertiaCalc(x(i).cdata);
+            i2 = inertiaCalc(x(j).cdata);
+            V2 = inertiaDifCalc(i1,i2);
+            y(i,j) = y(i,j) + V2;
+        end
+        if C == 1   %se a caracteristica distancia de compressao sera utilizada
+            V3 = imgCompDistCalc(x(i).cdata,x(j).cdata);
+            y(i,j) = y(i,j) + V3;
+        end
+        y(j,i) = y(i,j);    %preenche os valores abaixo da diagonal
+    end
+end
+end
