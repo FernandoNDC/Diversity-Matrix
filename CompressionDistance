@@ -1,0 +1,13 @@
+%Esta função foi desenvolvida por Fernando Nascimento dias carneiro, aluno 
+%de graduação da Universidade Federal de Minas gerais.
+%Seu objetivo é calcular a distância de compressão normalizada de dois
+%arquivos
+
+function y = imgCompDistCalc (Fig1,Fig2)
+
+z1 = imgCompCalc(Fig1,Fig1,1);   %tamanho do primeiro quadro como um avi comprimido
+z2 = imgCompCalc(Fig2,Fig2,2);  %tamanho do segundo quadro como um avi comprimido
+z3 = imgCompCalc(Fig1,Fig2,3);  %tamanho de ambos os quadrs como um avi comprimido
+y = (z3 - min(z1,z2))/(max(z1,z2)); %distância de compressão normalizada
+
+end
